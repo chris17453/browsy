@@ -1,0 +1,107 @@
+.browsy{
+	height:100%;
+    min-height:10vh;
+    max-height:100vh;
+    background-color:#e9ecef !important;
+}
+.browsy-row{
+	height:100%;
+}
+.browsy-file-container{
+	height:calc(100% - 84px);
+	overflow-y:auto;
+	overflow-x:hidden; 
+	min-height:0px;
+    background:white;
+    cursor:pointer;
+
+}
+
+.browsy-folder-container{
+	height:calc(100% - 24px);
+	min-height:89px;
+	overflow-y:auto;
+	overflow-x:hidden; 
+}
+.browsy-info-container{
+	height:calc(100% - 24px);
+	min-height:89px;
+	overflow-y:auto;
+	overflow-x:hidden; 
+}
+.browsy-tree > .row > .col{
+    display:inherit;
+    text-wrap:none;
+    cursor:pointer;
+}
+.browsy-tree > .row > .col:hover{
+    background-color:darkgrey;
+    color:white;
+    cursor:pointer;
+}
+
+.browsy-folder{
+    float:left;
+	color:#6e8dd7;
+}
+
+.browsy-folder-row{
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;      /* IE 10+ */
+    user-select: none;          /* Likely future */   
+	color:black;
+}
+
+.browsy-folder-special{
+	color:#008aff;
+}
+
+.browsy-file svg {
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;      /* IE 10+ */
+    user-select: none;          /* Likely future */   
+    color:#1c446b;
+}
+
+.browsy-file-active{
+    -webkit-user-select: none;  /* Chrome all / Safari all */
+    -moz-user-select: none;     /* Firefox all */
+    -ms-user-select: none;      /* IE 10+ */
+    user-select: none;          /* Likely future */   	background:darkgrey;
+	color:white;
+}
+.browsy-text{
+    overflow: hidden;
+    text-overflow:ellipsis;
+    word-break: keep-all;
+    float:left;
+}
+.browsy-grid{
+    height:100%;
+}
+.browsy-header{
+    border-bottom-style:solid;
+    border-bottom-color:grey;
+    border-bottom-width:1px;
+}
+
+.browsy-footer{
+    border-top-style:solid;
+    border-top-color:grey;
+    border-top-width:1px;
+}
+.browsy .row{
+    margin-left:0px;
+    margin-right:0px;
+}
+.browsy-ellipse{
+    overflow: hidden;
+    text-overflow:ellipsis;
+    word-break: keep-all;
+}
+.clear {
+clear:both;
+
+}
