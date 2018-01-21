@@ -23,5 +23,5 @@
     <files>
     <file src="./bin/Release/browsy.dll" target="lib\45\browsy.dll" />
     <file src="./README.md" target="" />
-</files>  
+</files>
 </package>
