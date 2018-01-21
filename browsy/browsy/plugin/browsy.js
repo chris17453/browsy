@@ -314,7 +314,7 @@
                 self.draw(self);
             }
             ,function(jr){ 
-                this.message("File Error",self.options.api_error); 
+                self.message("File Error",self.options.api_error); 
              },{path:file_path,filters:filters});
         }//end function
         browser.prototype.message=function(title,message) {

@@ -59,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="browsy.nuspec" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="plugin\index.html" />
