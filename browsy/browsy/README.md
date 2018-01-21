@@ -11,15 +11,15 @@ a jQuery Plugin
 The dll includes everything needed to run browsy. The webAPI Controller, and web resources.
 
 The web resources are:
-/browsy/index.html	
-/browsy/browsy.js
-/browsy/browsy.css
+- /browsy/index.html	
+- /browsy/browsy.js
+- /browsy/browsy.css
 
 The project namespace is "browsy"
 
 To load the webAPI Controller:
- reference browsy.dll 
- Add the namespace to your webAPI route
+- reference browsy.dll 
+- Add the namespace to your webAPI route
 
 ### Example:
 ```c#
@@ -32,9 +32,9 @@ r.DataTokens["Namespaces"] = new[] { typeof(browsy.controller.serverController).
 ```
 
 ## External Requirements:
-fontawesome5
-bootstrap4
-bootstrap-toggle
+- fontawesome5
+- bootstrap4
+- bootstrap-toggle
 
 
 ## Contributing
