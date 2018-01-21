@@ -1,27 +1,57 @@
-﻿<?xml version="1.0"?>
-<package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
-    <metadata>
-    <id>chris17453.browsy</id>
-    <version>1.0.0</version>
-    <authors>Charles Watkins</authors>
-    <owners>chris17453</owners>
-    <licenseUrl>http://opensource.org/licenses/MS-PL</licenseUrl>
-    <projectUrl>http://github.com/chris17453/browsy</projectUrl>
-    <iconUrl>https://github.com/chris17453/browsy/browsy.icon.png</iconUrl>
-    <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <releaseNotes>Initial Release</releaseNotes>
-    <description>A web file browser for server files. Using jQuery and webAPI. Tested in Mono on Linux.</description>
-    <copyright>Copyright ©2018 Charles Watkins</copyright>
-    <tags>jQuery webAPI Server File Browser</tags>
-    <dependencies>
-		
-        <dependency id="Microsoft.AspNet.WebApi.Client" version="5.2.3" />
-        <dependency id="Microsoft.AspNet.WebApi.Core" version="5.2.3" />
-        <dependency id="Newtonsoft.Json" version="6.0" />
-    </dependencies>
-  </metadata>
-    <files>
-    <file src="./bin/Release/browsy.dll" target="lib\45\browsy.dll" />
-    <file src="./README.md" target="" />
-</files>
-</package>
+# browsy
+Browsy Is a client side file browser for your Web server. 
+
+
+## System Software Components 
+a webAPI
+a jQuery Plugin
+
+
+## Deployment
+The dll includes everything needed to run browsy. The webAPI Controller, and web resources.
+
+The web resources are:
+/browsy/index.html	
+/browsy/browsy.js
+/browsy/browsy.css
+
+The project namespace is "browsy"
+
+To load the webAPI Controller:
+ reference browsy.dll 
+ Add the namespace to your webAPI route
+
+Example:
+	var r=config.Routes.MapHttpRoute(name          :"DefaultApi",
+					 routeTemplate :"api/{controller}/{id}",
+					 defaults      :new { id = RouteParameter.Optional });
+
+	//this is where you add the linked controllers. everything is inside of the DLL
+	r.DataTokens["Namespaces"] = new[] { typeof(browsy.controller.serverController).Namespace };
+
+On the web side browsy needs things from the web.
+fontawesome5
+bootstrap4
+bootstrap-toggle
+
+
+## Contributing
+Please read the COINTRIBUTING.md for details on our code of conduct, and the process for submitting pull requests to us.
+
+
+## Versioning
+We use GIT for versioning. For versions available, see the tags on this repository.
+
+
+## License
+This project is licensed under the GNU General Public License v3 -- see the LICENSE.md file for details
+
+
+
+## Authors
+Charles Watkins
+
+##Contact Info
+chris17453@gmail.com
+https://github.com/chris17453/browsy/
+https://www.linkedin.com/in/chris17453/
