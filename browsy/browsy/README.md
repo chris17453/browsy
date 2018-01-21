@@ -22,7 +22,7 @@ To load the webAPI Controller:
 - Add the namespace to your webAPI route
 
 
-### Backend Example:
+### C# WebAPI Backend Example:
 ```c#
 var r=config.Routes.MapHttpRoute(name          :"DefaultApi",
                                  routeTemplate :"api/{controller}/{id}",
@@ -31,7 +31,7 @@ var r=config.Routes.MapHttpRoute(name          :"DefaultApi",
 //this is where you add the linked controllers. everything is inside of the DLL
 r.DataTokens["Namespaces"] = new[] { typeof(browsy.controller.serverController).Namespace };
 ```
-### Client Side
+### Javascript Client Side Example
 ```javascript
 $(filter).browsy({
                 path                : null,                              //default path for the browser
