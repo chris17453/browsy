@@ -3,8 +3,8 @@ Browsy Is a client side file browser for your server.
 
 
 ## System Software Components 
-a webAPI
-a jQuery Plugin
+- a webAPI
+- a jQuery Plugin
 
 
 ## Deployment
@@ -20,6 +20,7 @@ The project namespace is "browsy"
 To load the webAPI Controller:
 - reference browsy.dll 
 - Add the namespace to your webAPI route
+
 
 ### Example:
 ```c#
@@ -49,11 +50,11 @@ We use GIT for versioning. For versions available, see the tags on this reposito
 This project is licensed under the GNU General Public License v3 -- see the LICENSE.md file for details
 
 
-
 ## Authors
 Charles Watkins
 
-##Contact Info
-chris17453@gmail.com
-https://github.com/chris17453/browsy/
-https://www.linkedin.com/in/chris17453/
+
+## Contact Info
+- chris17453@gmail.com
+- https://github.com/chris17453/browsy/
+- https://www.linkedin.com/in/chris17453/
