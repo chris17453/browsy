@@ -1,0 +1,104 @@
+﻿<html lang="en"><head>
+    <meta charset="utf-8"> 
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="Charles Christopher Watkins">
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="article" />
+    <title>Browsy Server File plugin for the web/asp.net</title>
+
+    <!-- jQuery for easier web functions -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+
+    <!--bootstrap 4 for better layout -->
+    <!-- Popper is sorta required by bootstrap 4? -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous" />
+
+    <!-- Browsy needs this.... Font awesome for folder glypohs / SVG -->
+    <script src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script>
+
+    <!-- Browsy needs this.... bootstrap toggle for cooler check boxes -->
+    <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
+    <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+
+    <!-- Browsy specific code -->
+    <script src="./browsy.js" ></script>
+    <link rel="stylesheet" href="./browsy.css" />
+    <script>
+    $(function(){
+        $(".open_file").click(function(){           //when you click open...
+            var f1=function(path,filename) {
+                alert("Success: Custom open called Path: "+path+" File Name: "+filename);
+            }
+            var f2=function() {
+                alert("Cancel: Custom cancel called.");
+            }
+            $(".server_file_dialog").browsy({   path:null,
+                                                filters:[],
+                                                admin:true,
+                                                server:"http://localhost:8888",
+                                                success_function:f1,
+                                                cancel_function:f2});      //make the thing do the thing
+        });
+    });
+    </script>
+
+   <style type="text/css">
+        body {
+          min-height: 100vh; 
+        }
+
+        .flex-grow {
+           flex: 1;
+        }
+        .server_file_dialog{    /* This is browsy specific. It is the container of the dialog. Set this to the desired height and browsy will comply. */
+            height:calc(100vh - 144px);
+        }
+   </style>
+        
+   <!-- End Browsy specific code -->
+</head>
+<body class="d-flex flex-column">
+    <nav class="navbar navbar-default navbar-fixed-top navbar-expand-lg navbar-dark bg-dark">
+          <div class="container">
+          <a class="navbar-brand" href="#">Browsy</a>
+            <ul id="navbar_menu" class="navbar-nav mr-auto hidden">
+              <li class="nav-item text-white open_file">Open File</li>
+            </ul>
+          </div>
+    </nav>
+    <section class="container-fluid flex-grow">
+        <nav class="breadcrumb mb-0">
+            <div class="container">
+                <a class="breadcrumb-item app_home" href="#home">Home</a>
+            </div>
+        </nav>
+        <div class="server_file_dialog"></div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header bg-primary">
+                <h4 class="modal-title text-white" id="info_model_title">Modal title</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              </div>
+              <div class="modal-body" id="info_model_body">
+                ...
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+    <footer class="navbar bg-dark">
+            <div class="container">
+                <div class="text-white pull-left">© 2017 (c) Charles Christopher Watkins <a href=mailto:chris@nocodedb.com">chris@nocodedb.com</a> </div>
+                <div><a target="_blank" class="text-white" href= "https://github.com/chris17453"><img src="./media/images/github/GitHub_Logo_White.png" style="height:41px;" alt="Git Hub" /></a> </div>
+                <div><a target="_blank" class="text-white" href= "https://www.linkedin.com/in/chris17453/"><img src="./media/images/linkedin/LinkedIn logo/Screen/White/Logo-White-34px-TM.png" alt="Linked In" /></a> </div>
+            </div>
+    </footer>
+</body></html>
