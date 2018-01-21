@@ -1,21 +1,16 @@
 ﻿using System;
 using System.Web.Http;
-using System.Net.Http;
 
 namespace browsy.controller
 {
 
         
-    [RoutePrefix("server")]    
+    [RoutePrefix("browsy")]    
     public class serverController:ApiController{
 
-        public serverController(){
-
-        }
-
         [Route("heartbeat")]
-        [HttpPost]
-        public string heartbeat() {
+        [HttpGet]
+            public string heartbeat() {
             return DateTime.UtcNow.ToString();
         }
 

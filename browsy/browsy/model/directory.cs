@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.IO;
 using System.Linq;
 
@@ -10,21 +9,20 @@ namespace browsy.model{
             public List<file_system_item> directories   { get; set; }
             public List<file_system_item> files         { get; set; }
 
-            public directory()
-            {
-            }
+            
             public string get_os(){
                 OperatingSystem os = Environment.OSVersion;
                 PlatformID     pid = os.Platform;
+                string os_string=String.Empty;
                 switch(pid){
-                    case PlatformID.Win32NT:
-                    case PlatformID.Win32S:
+                    case PlatformID.Win32NT     :
+                    case PlatformID.Win32S      :
                     case PlatformID.Win32Windows:
-                    case PlatformID.WinCE:
-                        return "Windows";
-                    case PlatformID.Unix: return "Linux";
-                    default             : return "OSX";
+                    case PlatformID.WinCE       : os_string="Windows"; break;
+                    case PlatformID.Unix        : os_string="Linux";   break;
+                    default                     : os_string="OSX";     break; 
                 }
+                return os_string;
             }
 
             public string get_home_dir(){
@@ -52,7 +50,7 @@ namespace browsy.model{
                 return "-";
             }
 
-            private static List<file_system_item> get_directories(string path){
+            static List<file_system_item> get_directories(string path){
                 List<file_system_item> t_item=new List<file_system_item>();
                 try{
 
@@ -78,16 +76,16 @@ namespace browsy.model{
                 return t_item;
             }
           
-        private static List<file_system_item> get_files(dir_path path){
+        static List<file_system_item> get_files(dir_path path){
                 List<file_system_item> t_item=new List<file_system_item>();
                 try{
                     var sorted = Directory.GetFiles(".").OrderBy(f => f);
                 List<string> t_files=Directory.GetFiles(path.path,"*",SearchOption.TopDirectoryOnly)
                       .Where((string x) => 
                         {
-                            if(null==path.filters || path.filters.Count()==0)  return true;
+                    if(null==path.filters || !path.filters.Any())  return true;
                             foreach (string z in  path.filters) {
-                                if(x.EndsWith(z)) return true;
+                        if(x.EndsWith(z,StringComparison.CurrentCulture)) return true;
                                 } return false;
                        }).OrderBy(f => f).ToList();
                     foreach(string t in t_files) {
@@ -113,11 +111,6 @@ namespace browsy.model{
                 return t_item;
             }
 
-        private static Func<string, bool> Func(string v, object x)
-        {
-            throw new NotImplementedException();
-        }
-
         public string get_parent_directory(String path){
                 System.IO.DirectoryInfo directoryInfo =System.IO.Directory.GetParent(path);
                 return directoryInfo.FullName;
@@ -135,7 +128,7 @@ namespace browsy.model{
                 this.path=path.path;
                 files=get_files(path); 
                 directories=get_directories(path.path);
-                }catch(Exception ex) {
+                }catch {
                     return false;
                 }
                 return true;

@@ -1,10 +1,28 @@
 ﻿using System;
-namespace browsy
-{
-    public class core
-    {
-        public core()
-        {
+using System.IO;
+using System.Net;
+using System.Net.Http;
+using System.Net.Http.Headers;
+using System.Reflection;
+
+namespace browsy{
+    public static class core{
+
+
+        public static HttpResponseMessage  EmbededResource(string path,string type)  {
+            var response = new HttpResponseMessage(HttpStatusCode.OK);
+            var asm = Assembly.GetExecutingAssembly();
+            using (var stream = asm.GetManifestResourceStream(path)){
+                if (stream != null){
+                    var reader = new StreamReader(stream);
+                    response.Content =new StringContent(reader.ReadToEnd());
+                }
+            }
+            if(null==response.Content) response.Content=new StringContent(String.Empty);
+            mime_type m=new mime_type(type);
+            response.Content.Headers.ContentType=new MediaTypeHeaderValue(m.mime);
+            return response;
+
         }
 
         public static string relative_time(DateTime t) {
@@ -25,10 +43,10 @@ namespace browsy
             if (delta < 12 * MONTH){
                 int months = Convert.ToInt32(Math.Floor((double)ts.Days / 30));
                 return months <= 1 ? "1 month" : months + " months";
-            }else{
-                int years = Convert.ToInt32(Math.Floor((double)ts.Days / 365));
-                return years <= 1 ? "1 year" : years + " years";
             }
+            int years = Convert.ToInt32(Math.Floor((double)ts.Days / 365));
+            return years <= 1 ? "1 year" : years + " years";
+
         }
 
         public static string get_bytes_readable(long i){    // Get absolute value
