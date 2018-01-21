@@ -1,5 +1,5 @@
 # browsy
-Browsy Is a client side file browser for your Web server. 
+Browsy Is a client side file browser for your server. 
 
 
 ## System Software Components 
@@ -21,15 +21,17 @@ To load the webAPI Controller:
  reference browsy.dll 
  Add the namespace to your webAPI route
 
-Example:
-	var r=config.Routes.MapHttpRoute(name          :"DefaultApi",
-					 routeTemplate :"api/{controller}/{id}",
-					 defaults      :new { id = RouteParameter.Optional });
+### Example:
+```c#
+var r=config.Routes.MapHttpRoute(name          :"DefaultApi",
+				 routeTemplate :"api/{controller}/{id}",
+				 defaults      :new { id = RouteParameter.Optional });
 
-	//this is where you add the linked controllers. everything is inside of the DLL
-	r.DataTokens["Namespaces"] = new[] { typeof(browsy.controller.serverController).Namespace };
+//this is where you add the linked controllers. everything is inside of the DLL
+r.DataTokens["Namespaces"] = new[] { typeof(browsy.controller.serverController).Namespace };
+```
 
-On the web side browsy needs things from the web.
+## External Requirements:
 fontawesome5
 bootstrap4
 bootstrap-toggle
