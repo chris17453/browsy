@@ -11,7 +11,7 @@ Browsy Is a client side file browser for your server.
 The dll includes everything needed to run browsy. The webAPI Controller, and web resources.
 
 The web resources are:
-- /browsy/index.html	
+- /browsy/index.html
 - /browsy/browsy.js
 - /browsy/browsy.css
 
@@ -22,15 +22,41 @@ To load the webAPI Controller:
 - Add the namespace to your webAPI route
 
 
-### Example:
+### Backend Example:
 ```c#
 var r=config.Routes.MapHttpRoute(name          :"DefaultApi",
-				 routeTemplate :"api/{controller}/{id}",
-				 defaults      :new { id = RouteParameter.Optional });
+                                 routeTemplate :"api/{controller}/{id}",
+                                 defaults      :new { id = RouteParameter.Optional });
 
 //this is where you add the linked controllers. everything is inside of the DLL
 r.DataTokens["Namespaces"] = new[] { typeof(browsy.controller.serverController).Namespace };
 ```
+### Client Side
+```javascript
+$(filter).browsy({
+                path                : null,                              //default path for the browser
+                filters             : [],                                //An array of filters for files. [".png",".jpg"]
+                admin               : true,                              //turn on all admin controls
+                server              : "http://localhost:8888",           //The api URL
+                admin_hidden_folders: false,                             //turn on the hidden folder toggle
+                admin_hidden_files  : false,                             //turn on the hidden file toggle
+                admin_filters       : false,                             //turn on the filter toggle
+                controller_name     : "browsy",                          //the api controller name (if you change it)
+                special_dirs        : [{ name:"Desktop",                 //use this to replace all special icons and sticky folders
+                                                icon:"fas fa-desktop",
+                                                type:"folder" ,
+                                                ext:"",
+                                                special:true
+                                      }],
+                success_function    : null,                              //success callback
+                cancel_function     : null,                              //cancel api callback
+                dialog_function     : null,                              //custom call back for messages
+                api_error           : "Bummer... Error loading the file browser data.",  //system error message
+                no_file_error       : "Gotta pick a file first captain."                 //no selected file mesage
+}); 
+
+```
+    
 
 ## External Requirements:
 - fontawesome5
