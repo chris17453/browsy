@@ -78,6 +78,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="init\" />
+    <Folder Include="content\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\browsy\browsy.csproj">

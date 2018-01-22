@@ -7,8 +7,6 @@
             admin_hidden_folders: false,
             admin_hidden_files  : false,
             admin_filters       : false,
-            open                : null,
-            cancel              : null,
             controller_name     : "browsy",
             special_dirs        :[
                 { name:"Desktop"      ,icon:"fas fa-desktop"      ,type:"folder" ,ext:"",special:true},
