@@ -81,6 +81,6 @@ Charles Watkins
 
 
 ## Contact Info
-- [email] (chris17453@gmail.com)
-- [github] (https://github.com/chris17453/browsy/)
-- [linkedIn] (https://www.linkedin.com/in/chris17453/)
+- [email](chris17453@gmail.com)
+- [github](https://github.com/chris17453/browsy/)
+- [linkedIn](https://www.linkedin.com/in/chris17453/)
